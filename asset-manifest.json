@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/auto-drive-rentals/static/css/main.964fdded.css",
+    "main.js": "/auto-drive-rentals/static/js/main.a44e2ef5.js",
+    "index.html": "/auto-drive-rentals/index.html",
+    "main.964fdded.css.map": "/auto-drive-rentals/static/css/main.964fdded.css.map",
+    "main.a44e2ef5.js.map": "/auto-drive-rentals/static/js/main.a44e2ef5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.964fdded.css",
+    "static/js/main.a44e2ef5.js"
+  ]
+}
