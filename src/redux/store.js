@@ -10,9 +10,11 @@ import {
 } from 'redux-persist';
 import { filterReducer } from './filter/reducer';
 import { favoritesReducer } from './favorites/reducer';
+import { carsReducer } from './catalog/reducer';
 
 export const store = configureStore({
   reducer: {
+    cars: carsReducer,
     filter: filterReducer,
     favorites: favoritesReducer,
   },
