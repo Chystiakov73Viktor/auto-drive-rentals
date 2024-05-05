@@ -1,10 +1,12 @@
-import { Section } from 'components/Section/Section';
-import { Loader } from 'components/Loader/Loader';
+import { Section } from "components/Section/Section";
+import { HomePage } from "../components/HomePage/HomePage";
+// import { Loader } from 'components/Loader/Loader';
 
 function Home() {
   return (
-    <Section className="carsListSection" titleClassName="titleCatalog">
-        <Loader />
+    <Section className="carsHomeSection" titleClassName="titleCatalog">
+      {/* <Loader /> */}
+      <HomePage />
     </Section>
   );
 }
