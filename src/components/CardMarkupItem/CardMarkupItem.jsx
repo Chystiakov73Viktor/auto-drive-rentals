@@ -4,7 +4,7 @@ import { IoMdHeart } from "react-icons/io";
 import { LiWrapper } from "./CardMarkupItem.styled";
 import { useEffect, useState } from "react";
 import { Modal } from "components/Modal/Modal";
-import { CardModalList } from 'components/CardModalList/CardModalList';
+import { CardModalList } from 'components/CardModalList';
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selects";
 import { addFavorite, removeFavorite } from "../../redux/favorites/operations";
