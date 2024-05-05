@@ -1,56 +1,49 @@
-import { WrapperDiv } from './CustomInput.styled';
+import { WrapperDiv } from "./CustomInput.styled";
 
-const CustomInput = ({ formik }) => {
+const CustomInput = ({ formik, handleMileageChange }) => {
   const { handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
     <WrapperDiv>
       <label className="label">
-        <div className="containerLabel">
-          <span className="spanLabel">Full Name</span>
-          <input
-            className="input inputName"
-            type="text"
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
+        <div className="containerInputFrom">
+          <span className="spanLabel">Car mileage / km</span>
+          <div className="containerFrom">
+            <span className="from">From</span>
+            <input
+              className="input inputFrom"
+              type="text"
+              name="from"
+              value={values.from}
+              onChange={(e) => {
+                handleChange(e);
+                handleMileageChange(e);
+              }}
+              onBlur={handleBlur}
+            />
+          </div>
         </div>
-        {touched.name && errors.name ? (
-          <div className="error">{errors.name}</div>
+        {touched.from && errors.from ? (
+          <div className="error">{errors.from}</div>
         ) : null}
       </label>
       <label className="label">
-        <div className="containerLabel">
-          <span className="spanLabel">Email</span>
+        <div className="containerTo">
+          <span className="to">To</span>
           <input
-            className="input inputEmail"
+            className="input inputTo"
             type="text"
-            name="email"
-            value={values.email}
-            onChange={handleChange}
+            name="to"
+            value={values.to}
+            onChange={(e) => {
+              handleChange(e);
+              handleMileageChange(e);
+            }}
             onBlur={handleBlur}
           />
         </div>
-        {touched.email && errors.email ? (
-          <div className="error">{errors.email}</div>
-        ) : null}
-      </label>
-      <label className="label">
-        <div className="containerLabel">
-          <span className="spanLabel">Phone number</span>
-          <input
-            className="input inputNumber"
-            type="tel"
-            name="number"
-            value={values.number}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-        </div>
-        {touched.number && errors.number ? (
-          <div className="error">{errors.number}</div>
+        {touched.to && errors.to ? (
+          <div className="error">{errors.to}</div>
         ) : null}
       </label>
     </WrapperDiv>

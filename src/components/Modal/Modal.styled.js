@@ -8,31 +8,11 @@ export const Backdrop = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
 
-  &.backdropAvatar {
-    background-color: rgba(255, 255, 255, 0);
-  }
-
   .content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     overflow: auto;
-  }
-
-  & .contentAvatar {
-    position: absolute;
-    top: 232px;
-    left: auto;
-    right: 120px;
-    overflow: auto;
-  }
-
-  &.backdropSignup {
-    background-color: rgba(255, 255, 255, 0);
-  }
-
-  &.backdropSignin {
-    background-color: rgba(255, 255, 255, 0);
   }
 `;

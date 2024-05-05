@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SectionWrapper = styled.section`
   padding: 80px 0;
@@ -7,8 +7,11 @@ export const SectionWrapper = styled.section`
     padding: 0;
     background: #fff;
   }
+  &.carsHomeSection {
+    padding: 0;
+  }
   & .titleCatalog {
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 1.5;
