@@ -1,4 +1,4 @@
-import{u as e,j as a,C as r}from"./index-BOf553a-.js";const i=e.section`
+import{u as e,j as a,C as r}from"./index-DTNClKTb.js";const i=e.section`
   padding: 80px 0;
   background: #f8f8f8;
   &.hero {
