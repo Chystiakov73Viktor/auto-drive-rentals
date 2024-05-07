@@ -6,7 +6,9 @@ import { Loader } from "components/Loader/Loader";
 export const Layout = () => {
   return (
     <>
-      <AppBar />
+      <header>
+        <AppBar />
+      </header>
       <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
