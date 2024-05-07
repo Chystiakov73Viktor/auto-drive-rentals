@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_API_TEST;
 
 axios.defaults.baseURL = `https://${API_KEY}.mockapi.io`;
 
