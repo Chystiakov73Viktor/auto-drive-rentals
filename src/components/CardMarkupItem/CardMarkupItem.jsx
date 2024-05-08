@@ -4,7 +4,7 @@ import { IoMdHeart } from "react-icons/io";
 import { LiWrapper } from "./CardMarkupItem.styled";
 import { useEffect, useState } from "react";
 import { Modal } from "components/Modal/Modal";
-import { CardModalList } from 'components/CardModalList';
+import { CardModalList } from "components/CardModalList";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selects";
 import { addFavorite, removeFavorite } from "../../redux/favorites/operations";
@@ -23,7 +23,6 @@ export const CardMarkupItem = ({ cardData }) => {
     accessories,
     type,
     mileage,
-    
   } = cardData;
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
@@ -35,23 +34,34 @@ export const CardMarkupItem = ({ cardData }) => {
   const isValidImgUrl = img && img.startsWith("http");
   const imgUrl = isValidImgUrl ? img : defaultImg;
 
-  const parts = address.split(",");
+  const parts = address ? address.split(",") : [];
 
-  const city = parts[1].trim();
-  const country = parts[2].trim();
-  const premiumItem = accessories.find((item) => item.includes("Premium"));
+  const city = parts && parts.length > 1 ? parts[1].trim() : "";
+  const country = parts && parts.length > 2 ? parts[2].trim() : "";
+  const premiumItem = Array.isArray(accessories)
+    ? accessories.find((item) => item.includes("Premium"))
+    : null;
   const premiumWord = premiumItem ? "Premium" : null;
 
-  const thirdRow = accessories[1];
-  const words = thirdRow.split(" ");
-  const lastTwoWords = words.slice(-2);
-  const firstWord =
-    lastTwoWords[0].charAt(0).toUpperCase() + lastTwoWords[0].slice(1);
-  const result = `${firstWord} ${lastTwoWords[1]}`;
+  let result = '';
+  if (Array.isArray(accessories) && accessories.length >= 2) {
+    const thirdRow = accessories[1];
+    const words = thirdRow.split(" ");
+    if (words.length >= 2) {
+      const lastTwoWords = words.slice(-2);
+      const firstWord = lastTwoWords[0].charAt(0).toUpperCase() + lastTwoWords[0].slice(1);
+      result = `${firstWord} ${lastTwoWords[1]}`;
+    }
+  }
 
-  const shorterString = make.length < model.length ? make : model;
+const shorterString = (make && model) ? (make.length < model.length ? make : model) : '';
 
-  const resultType = make === "Lamborghini" ? type : result;
+let resultType = '';
+if (make === "Lamborghini" && type) {
+  resultType = type;
+} else {
+  resultType = result;
+}
 
   useEffect(() => {
     setIsFavorite(favorites.some((favorite) => favorite.id === id));
@@ -136,11 +146,7 @@ export const CardMarkupItem = ({ cardData }) => {
         </li>
         <li className="itemAddressType">{resultType}</li>
       </ul>
-      <button
-        type="button"
-        className="buttonLearn"
-        onClick={openButtonModal}
-      >
+      <button type="button" className="buttonLearn" onClick={openButtonModal}>
         Learn more
       </button>
     </LiWrapper>

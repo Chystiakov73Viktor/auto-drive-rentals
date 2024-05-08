@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Section } from "components/Section/Section";
 import { CardMarkupList } from "../components/CardMarkupList/CardMarkupList";
 import { getCars } from "../redux/catalog/operations";
-import { selectCarsIsLoading, selectCarsValue } from "../redux/catalog/selects";
+import { selectCarsIsLoading } from "../redux/catalog/selects";
 import { Loader } from "components/Loader/Loader";
 import { FilterForm } from "../components/FilterForm/FilterForm";
 import { selectFilteredCard } from "../redux/filter/selects";
@@ -11,17 +11,21 @@ import Pagination from "../components/Pagination/Pagination";
 
 function Catalog() {
   const dispatch = useDispatch();
-  const data = useSelector(selectCarsValue);
+  // const data = useSelector(selectCarsValue);
   const isLoading = useSelector(selectCarsIsLoading);
   const filteredCard = useSelector(selectFilteredCard);
 
   const itemsPerPage = 12;
 
   useEffect(() => {
-    if (data.length === 0) {
-      dispatch(getCars());
-    }
-  }, [dispatch, data]);
+    dispatch(getCars());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   if (data.length === 0) {
+  //     dispatch(getCars());
+  //   }
+  // }, [dispatch, data]);
 
   const renderCardList = (paginatedData) => {
     return <CardMarkupList dataCard={paginatedData} />;
