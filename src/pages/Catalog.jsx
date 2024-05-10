@@ -11,7 +11,6 @@ import Pagination from "../components/Pagination/Pagination";
 
 function Catalog() {
   const dispatch = useDispatch();
-  // const data = useSelector(selectCarsValue);
   const isLoading = useSelector(selectCarsIsLoading);
   const filteredCard = useSelector(selectFilteredCard);
 
@@ -20,12 +19,6 @@ function Catalog() {
   useEffect(() => {
     dispatch(getCars());
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (data.length === 0) {
-  //     dispatch(getCars());
-  //   }
-  // }, [dispatch, data]);
 
   const renderCardList = (paginatedData) => {
     return <CardMarkupList dataCard={paginatedData} />;
