@@ -6,6 +6,7 @@ import { CardMarkupList } from "../components/CardMarkupList/CardMarkupList";
 import { FilterForm } from "../components/FilterForm/FilterForm";
 import Pagination from "../components/Pagination/Pagination";
 import { selectFilteredFavorites } from "../redux/filter/selects";
+import Placeholder from "../components/Placeholder/Placeholder";
 
 function Favorites() {
   const favorites = useSelector(selectFilteredFavorites);
@@ -22,12 +23,18 @@ function Favorites() {
         <Loader />
       ) : (
         <>
-          <FilterForm />
-          <Pagination
-            data={favorites}
-            itemsPerPage={itemsPerPage}
-            renderCardList={renderCardList}
-          />
+          {favorites.length !== 0 ? (
+            <>
+              <FilterForm />
+              <Pagination
+                data={favorites}
+                itemsPerPage={itemsPerPage}
+                renderCardList={renderCardList}
+              />
+            </>
+          ) : (
+            <Placeholder />
+          )}
         </>
       )}
     </Section>
